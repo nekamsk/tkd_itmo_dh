@@ -1,0 +1,6 @@
+pip install sqlite3
+pip install csv
+pip install tkinter as tk
+pip install requests
+pip install datetime
+pip install webbrowser
