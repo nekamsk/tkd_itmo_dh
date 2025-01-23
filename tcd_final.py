@@ -85,7 +85,7 @@ class APIClient:
 
 
 # Класс для экспорта данных.
-class SQLManager:
+class FileManager:
     @staticmethod # Используется для создания статических методов в классах, которые не зависят от состояния объекта или класса. 
     def export_to_csv(filename, data):
         with open(filename, "w", newline="", encoding="utf-8") as file:
@@ -201,7 +201,7 @@ class FinanceManager:
         filename = filedialog.asksaveasfilename(defaultextension=".csv", filetypes=[("CSV files", "*.csv")])
         if filename:
             try:
-                SQLManager.export_to_csv(filename, self.db_manager.get_transactions())
+                FileManager.export_to_csv(filename, self.db_manager.get_transactions())
                 messagebox.showinfo("Успешно", "Данные экспортированы в CSV!")
             except Exception as e:
                 messagebox.showerror("Ошибка 321", f"Не удалось экспортировать данные: {e}")
@@ -210,7 +210,7 @@ class FinanceManager:
         filename = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=[("Text files", "*.txt")])
         if filename:
             try:
-                SQLManager.export_to_txt(filename, self.db_manager.get_transactions())
+                FileManager.export_to_txt(filename, self.db_manager.get_transactions())
                 messagebox.showinfo("Успешно", "Данные экспортированы в TXT.")
             except Exception as e:
                 messagebox.showerror("Ошибка 123", f"Не удалось экспортировать данные: {e}")
